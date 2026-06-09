@@ -5,7 +5,6 @@
 
 A standardized preprocessing and analysis workflow for single-cell RNA-seq data using Cell Ranger. This pipeline ensures uniform sequencing depth across samples through controlled downsampling and generates consistent inputs for downstream clustering and gene expression analysis.
 
----
 
 ## Overview
 
@@ -19,7 +18,6 @@ Cell Ranger is an industry-standard pipeline used for processing 10x Genomics si
 
 This workflow focuses on **preprocessing, normalization, and standardized input preparation** before Cell Ranger execution.
 
----
 
 ## Key Principles
 
@@ -27,7 +25,6 @@ This workflow focuses on **preprocessing, normalization, and standardized input 
 
 To ensure comparability across samples, all datasets are normalized to the **lowest sequencing depth** within the experiment.
 
----
 
 ### 2. Paired-End Data Requirement
 
@@ -38,7 +35,6 @@ Cell Ranger requires both:
 
 Both reads are essential for proper molecule reconstruction.
 
----
 
 ### 3. Experimental Design Considerations
 
@@ -46,7 +42,6 @@ Both reads are essential for proper molecule reconstruction.
 * Final downsampling depth is determined based on experimental constraints
 * In some cases, expected cell numbers may require adjusting Cell Ranger parameters (e.g., expected cell recovery)
 
----
 
 ## Workflow Steps
 
@@ -54,7 +49,6 @@ Both reads are essential for proper molecule reconstruction.
 
 The minimum read count across all FASTQ files is calculated to define the downsampling threshold.
 
----
 
 ### 2. Downsampling Reads
 
@@ -65,7 +59,6 @@ This step ensures:
 * Comparable sequencing depth across conditions
 * Standardized input for Cell Ranger
 
----
 
 ### 3. Validation of Downsampling
 
@@ -75,7 +68,6 @@ Downsampled files are verified to confirm:
 * No file corruption occurred
 * Paired-end structure is preserved
 
----
 
 ### 4. File Organization
 
@@ -83,7 +75,6 @@ Downsampled FASTQ files are reorganized by experimental condition to prepare for
 
 Each condition is processed independently.
 
----
 
 ### 5. Cell Ranger Execution
 
@@ -100,7 +91,6 @@ Optional parameter:
 
 * `--expect-cells` can be used when higher cell recovery is expected based on experimental design
 
----
 
 ### 6. Output Aggregation
 
@@ -111,7 +101,6 @@ After processing, key metrics are extracted from all samples:
 
 These are combined into a summary table for comparative analysis.
 
----
 
 ## Key Output Files
 
@@ -119,7 +108,6 @@ These are combined into a summary table for comparative analysis.
 * Aggregated QC table (`all_samples_metrics.csv`)
 * Final visualization plots
 
----
 
 ## Interpretation of Downsampling Strategy
 
@@ -129,7 +117,6 @@ Downsampling is used to ensure:
 * Fair comparison between mock and treated samples
 * Reduced technical bias in clustering and differential expression
 
----
 
 ## Notes
 
@@ -138,7 +125,6 @@ Downsampling is used to ensure:
 * Over-aggressive downsampling may reduce cell recovery and gene detection sensitivity
 * Proper R1/R2 pairing is critical for correct UMI assignment
 
----
 
 ## Summary
 
@@ -149,5 +135,3 @@ This workflow standardizes single-cell RNA-seq preprocessing by:
 3. Structuring input for Cell Ranger
 4. Running per-sample Cell Ranger analysis
 5. Aggregating QC metrics for downstream interpretation
-
----
