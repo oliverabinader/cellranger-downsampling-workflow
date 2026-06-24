@@ -85,7 +85,7 @@ mkdir -p "$DS_DIR"/{mock,pos,test}
 mv "$DS_DIR"/*mock* "$DS_DIR/mock/" || true
 mv "$DS_DIR"/*POS* "$DS_DIR/pos/" || true
 mv "$DS_DIR"/*test* "$DS_DIR/test/" || true
-# Note: For fastq folder creation, use the following as example: Ryan_SC__11_061726, disregard everything afterwards. (Ryan_SC__11_061726_S3_L001_R1_001.fastq.gz)
+# Note: For fastq folder creation, use the following as example: Name_SC__11_061726, disregard everything afterwards. (Name_SC__11_061726_S3_L001_R1_001.fastq.gz)
 
 ########################################################
 # 9. RUN CELL RANGER PER SAMPLE
